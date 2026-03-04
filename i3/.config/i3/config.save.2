@@ -37,8 +37,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 #Brightness
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id brightnessctl set 1%-
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id brightnessctl set +1%
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id brightnessctl set 5%-
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id brightnessctl set +5%
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -64,11 +64,6 @@ bindsym $mod+Shift+a kill
 
 #start rofi 
 bindsym $mod+d exec rofi -show drun
-
-#Screenshot
-bindsym Print exec sh -c 'cd ~/Images && scrot -s && notify-send "Capture saved"'
-
-bindsym --release 107 exec scrot -s ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"

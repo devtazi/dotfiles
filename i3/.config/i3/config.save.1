@@ -15,7 +15,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:"Meslo LGM Nerd Fonpt" 14
+font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -37,8 +37,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 #Brightness
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id brightnessctl set 1%-
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id brightnessctl set +1%
+bindsym XF86MonBrightnessUp exec sudo brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec sudo brightnessctl set 10%-
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -55,21 +55,13 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec i3-sensible-terminal
+
 # kill focused window
 bindsym $mod+Shift+a kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
-
-#start rofi 
-bindsym $mod+d exec rofi -show drun
-
-#Screenshot
-bindsym Print exec sh -c 'cd ~/Images && scrot -s && notify-send "Capture saved"'
-
-bindsym --release 107 exec scrot -s ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
-
+bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -197,25 +189,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+}
+
 bindsym $mod+shift+x exec i3lock 
-
-
-#Set Wallpaper
-exec_always feh --bg-scale /home/adam/Pictures/Wallpapers/samurai.png
-
-#Set Picom
-exec_always --no-startup-id /usr/bin/picom -b
-
-#Set Autotiling  
-exec_always --no-startup-id /home/adam/.local/bin/autotiling
-
-#Set Polybar 
-exec_always --no-startup-id killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-
-#GAPS
-gaps inner 7px
-gaps outer 10px 
-
-#Delete window titles 
-for_window [class="^.*"] border pixel 0
