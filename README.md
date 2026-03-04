@@ -10,6 +10,7 @@ This repository contains my personal configuration files (dotfiles), managed wit
 
 ![Desktop Screenshot](preview.png)
 
+![Desktop Screenshot](preview2.png)
 ## 🛠️ Tech Stack
 
 | Component | Choice |
