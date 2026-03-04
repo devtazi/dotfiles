@@ -23,12 +23,11 @@ This repository contains my personal configuration files (dotfiles), managed wit
 
 ---
 
-## 🚀 Quick Setup
+## ⌨️ Key Features
 
-To replicate this environment on a new machine:
+- **Modular Structure:** Each application has its own directory (i3, polybar, appearance) for easy management and selective deployment.
+- **Automated UI:** Consistent dark theme and visual harmony across GTK and Qt applications.
+- **Productivity Focused:** Custom scripts for Polybar management and optimized workspace tiling to minimize mouse usage.
+- **Rapid Deployment:** Entire environment can be restored on a fresh install in seconds using symlinks.
 
-1. **Clone the repository:**
-   ```bash
-   git clone git@github.com:devtazi/dotfiles.git ~/dotfiles
-   cd ~/dotfiles
-
+---
